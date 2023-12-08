@@ -1,0 +1,59 @@
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 250px;
+}
+.img_title{
+  font-size: 20px;
+  color:green;
+}
+.card .img{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  border-style:none;
+}
+.card{
+  border-style: none;
+}
+
+.text-center{
+  color:green
+}
+
+
+.btn {
+  border: 5px solid;
+  border-image-slice: 1;
+  background: var(--gradient) !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source:  var(--gradient) !important; 
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--gradient) !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important; 
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
+}
+.form-control{
+  border: none;
+  border:2px solid green;
+}
+/* .card-title{
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} */
+.card-title{
+  color:green;
+  text-align: center;
+}
+.author{
+  color:Black;
+  text-align: center;
+}
