@@ -56,4 +56,6 @@ img {
 .author{
   color:Black;
   text-align: center;
+  text-decoration: underline;
+  font-size: 15px;
 }

@@ -3,18 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SearchImagesComponent } from './search-images/search-images.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchImagesComponent
+    SearchImagesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

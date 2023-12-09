@@ -16,6 +16,7 @@ export class SearchImagesComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
   
   search(event: any) {
@@ -39,4 +40,14 @@ export class SearchImagesComponent implements OnInit {
     }
   }
 
+  sanitizeAuthorName(authorName: string): string {
+    return this.removeQuotes(authorName);
+  }
+
+  private removeQuotes(input: string): string {
+    return input.replace(/["']/g, ''); // This will remove both single and double quotes
+  }
 }
+
+
+
