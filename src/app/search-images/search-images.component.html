@@ -12,8 +12,8 @@
         <div class="card" style="width: 18rem;">
           <a href="{{image.url}}_b.jpg">
           <img src="{{image.url}}_m.jpg" class="card-img-top" alt="...">
-          <h5 class="author">{{ sanitizeAuthorName(image.ownername) }}</h5>
-
+          <h5 class="author">Author: {{ sanitizeAuthorName(image.ownername) }}</h5>
+          <p class="tagz">Tags: {{image.tags}}</p>
         </a>
       <div class="card-body">
         <h5 class="card-title">{{ image.title }}</h5>

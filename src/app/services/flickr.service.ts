@@ -47,6 +47,7 @@ export class FlickrService {
           title: item.title,
           url: item.media.m,
           ownername: item.author,
+          tags:item.tags
         };
       });
     }));

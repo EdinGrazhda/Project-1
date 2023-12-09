@@ -42,13 +42,13 @@ img {
   border: none;
   border:2px solid green;
 }
-/* .card-title{
+.card-title{
   display: block;
-  width: 200px;
+  width: 250px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-} */
+}
 .card-title{
   color:green;
   text-align: center;
@@ -58,4 +58,15 @@ img {
   text-align: center;
   text-decoration: underline;
   font-size: 15px;
+  font-weight: 800;
+}
+.tagz{
+  display: block;
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color:black;
+  margin-left:9%;
+  text-decoration: underline ;
 }
