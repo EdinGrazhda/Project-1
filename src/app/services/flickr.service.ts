@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { HttpClientJsonpModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface FlickrPhoto {
   title: string;
@@ -29,8 +31,9 @@ export class FlickrService {
  
   private prevKeyword: string;
   private currPage = 1;
+  snapshot: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ,private route: ActivatedRoute, private router: Router) { }
 
   search_keyword(keyword: string) {
     if (this.prevKeyword === keyword) {
@@ -53,22 +56,6 @@ export class FlickrService {
         };
       });
     }));
-  }
-  getImageById(id: string) {
-    // Update the URL to fetch a specific photo by ID
-    const url = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=JSONP_CALLBACK&id=${id}`;
-
-    // Ensure the method returns an observable
-    return this.http.jsonp(url, 'JSONP_CALLBACK').pipe(
-      map((res: any) => {
-        return {
-          title: res.title,
-          url: res.media.m,
-          ownername: res.author,
-          tags: res.tags,
-        };
-      })
-    );
   }
 }
 

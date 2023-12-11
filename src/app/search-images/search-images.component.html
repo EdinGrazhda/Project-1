@@ -1,38 +1,41 @@
 <div class="main">
   <div class="container">
     <h1 class="text-center">Flickr</h1>
-  <div class="form-group">
-    <input type="search" class="form-control" (keyup)="search($event)" placeholder="Kerko Imazhe..."> 
-    
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images"> 
-  <div class="container">
+    <div class="form-group">
+      <input type="search" class="form-control" (keyup)="search($event)" placeholder="Kerko Imazhe...">
+    </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class = "card">
-          <!-- search-images.component.html -->
-          <img [routerLink]="'/zoom/' + image.id" routerLinkActive="active-link" routerLink="/zoom" class src="{{image.url}}_m.jpg" class="card-img-top" alt="...">
+      <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <img id="myImg" (click)="openModal(image)" src="{{ image.url }}_m.jpg" class="card-img-top" alt="...">
 
-          <div class="card-content">
-            <h2>
-              {{ image.title }} 
-            </h2>
-            <h1>
-              <span class="span">Author:</span> {{ sanitizeAuthorName(image.ownername) }} 
-            </h1>
-            <a href="#" class="button">
-              <h6><span class="span">Tags:</span>{{image.tags}}</h6>
-            </a>
+                <div class="card-content">
+                  <h2>{{ image.title }}</h2>
+                  <h1><span class="span">Author:</span> {{ sanitizeAuthorName(image.ownername) }}</h1>
+                  <a href="#" class="button">
+                    <h6><span class="span">Tags:</span>{{ image.tags }}</h6>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+    <div
+      class="search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()">
+    </div>
   </div>
-  <div
-    class="search-results"
-    infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="50"
-    (scrolled)="onScroll()">
-  </div>
-</div>
 </div>

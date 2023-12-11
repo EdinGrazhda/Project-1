@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FlickrService } from '../services/flickr.service';
+import { ImageViewerComponent } from 'ngx-image-viewer';
 
 
 
@@ -18,6 +19,24 @@ image: any;
   constructor(private flickrService: FlickrService) { }
 
   ngOnInit() {
+  }
+  openModal(image: any): void {
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById('img01') as HTMLImageElement;
+    const captionText = document.getElementById('caption');
+
+    if (modal && modalImg && captionText) {
+      modal.style.display = 'block';
+      modalImg.src = image.url + '_m.jpg';
+      captionText.innerHTML = image.title;
+    }
+  }
+
+  closeModal(): void {
+    const modal = document.getElementById('myModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
   }
 
   search(event: any) {
@@ -58,5 +77,6 @@ image: any;
   private removeQuotes(input: string): string {
     return input.replace(/["']/g, ''); // This will remove both single and double quotes
   }
-
+  
+  
 }
