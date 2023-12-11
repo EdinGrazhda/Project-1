@@ -2,23 +2,30 @@
   <div class="container">
     <h1 class="text-center">Flickr</h1>
   <div class="form-group">
-    <input type="search" class="form-control" (keyup)="search($event)" placeholder="Kerko Imazhe...">
+    <input type="search" class="form-control" (keyup)="search($event)" placeholder="Kerko Imazhe..."> 
+    
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images"> 
-  <div class="container mx-auto mt-4">
+  <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <a href="{{image.url}}_b.jpg">
-          <img src="{{image.url}}_m.jpg" class="card-img-top" alt="...">
-          <h5 class="author">Author: {{ sanitizeAuthorName(image.ownername) }}</h5>
-          <p class="tagz">Tags: {{image.tags}}</p>
-        </a>
-      <div class="card-body">
-        <h5 class="card-title">{{ image.title }}</h5>
-      </div>
-    </div>
+        <div class = "card">
+          <!-- search-images.component.html -->
+          <img [routerLink]="'/zoom/' + image.id" routerLinkActive="active-link" routerLink="/zoom" class src="{{image.url}}_m.jpg" class="card-img-top" alt="...">
+
+          <div class="card-content">
+            <h2>
+              {{ image.title }} 
+            </h2>
+            <h1>
+              <span class="span">Author:</span> {{ sanitizeAuthorName(image.ownername) }} 
+            </h1>
+            <a href="#" class="button">
+              <h6><span class="span">Tags:</span>{{image.tags}}</h6>
+            </a>
+          </div>
+        </div>
   </div>
   <div
     class="search-results"
